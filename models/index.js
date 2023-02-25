@@ -1,4 +1,4 @@
-const Model = require('../config./models/model');
+const Model = require('../models/model');
 
 class UsersModel extends Model {
     constructor(){
@@ -6,7 +6,7 @@ class UsersModel extends Model {
     }
 }
 
-class BusinessModel extends Model {
+class BusinessModel  extends Model {
    constructor(){
         super('tbl_business');
    }
