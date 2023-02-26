@@ -15,3 +15,8 @@ exports.errorResponse = (req, res, message) => {
     }
     res.status(200).json(errorFormat);
 }
+
+exports.internalServerErrorResponse = (req, res, message) => {
+    var code = message.code;
+    res.status(code).json(message);
+}

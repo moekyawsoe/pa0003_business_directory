@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "dev": "nodemon app.js",
     "start": "nodemon app.js"
   },
   "dependencies": {
@@ -12,6 +13,7 @@
     "ejs": "~2.6.1",
     "express": "~4.17.1",
     "http-errors": "~1.7.2",
+    "jsonwebtoken": "^9.0.0",
     "md5": "^2.3.0",
     "moment": "^2.29.4",
     "morgan": "~1.10.0",

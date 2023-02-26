@@ -23,22 +23,37 @@ exports.createAdmin = (req, res) => {
 exports.AdminList = async (req, res) => {
     var adminlist = await AdminModel.get_all();
     if(adminlist){
-        apiResponse.successResponse(req, res, "Admin List", adminlist);
+        apiResponse.successResponse(req, res, "Admin List", common.prettifyArray(adminlist));
     }else{
         apiResponse.errorResponse(req, res, `Error!`);
     }
-
 }
 
-exports.AdminDetails = () => {
-    
+exports.AdminDetails = (req, res) => {
+    var id = req.params.id;
+    AdminModel.find(id).then((value) => {
+        apiResponse.successResponse(req, res, "Details", value);
+    }).catch((err) => {
+        apiResponse.errorResponse(req, res, err);
+    });
 }
 
-exports.updateAdmin = () => {
-
+exports.updateAdmin = (req, res) => {
+    var id = req.params.id;
+    var data = req.body;
+    AdminModel.update(id, data).then((value) => {
+        apiResponse.successResponse(req, res, "Updated!", "");
+    }).catch((err) => {
+        apiResponse.errorResponse(req, res, err);
+    });
 }
 
-exports.deleteAdmin = () => {
-
+exports.deleteAdmin = (req, res) => {
+    var id = req.params.id;
+    AdminModel.delete(id).then((value) => {
+        apiResponse.successResponse(req, res, "Success!", "");
+    }).catch((err) => {
+        apiResponse.errorResponse(req, res, err);
+    });
 }
 
