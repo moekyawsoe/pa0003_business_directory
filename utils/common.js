@@ -30,8 +30,8 @@ exports.prettifyArray = (data) => {
 }
 
 exports.generateToken = (data) => {
-    return jwt.sign(data, secret, { expiresIn: '3h'});}
-
+    return jwt.sign(data, secret, { expiresIn: '3h'});
+}
 
 
 exports.verifyToken = (req, res, next) => {
